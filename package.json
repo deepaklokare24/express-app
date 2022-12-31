@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/deepaklokare24/express-app/issues"
   },
-  "homepage": "https://github.com/deepaklokare24/express-app#readme"
+  "homepage": "https://github.com/deepaklokare24/express-app#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
