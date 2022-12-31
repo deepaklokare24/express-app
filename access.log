@@ -1,0 +1,12 @@
+::1 - - [31/Dec/2022:07:15:02 +0000] "GET /api/v1/tours HTTP/1.1" 200 8735 "-" "PostmanRuntime/7.29.2"
+::1 - - [31/Dec/2022:07:15:19 +0000] "GET /api/v1/tours/10 HTTP/1.1" 200 139 "-" "PostmanRuntime/7.29.2"
+::1 - - [31/Dec/2022:07:15:21 +0000] "PATCH /api/v1/tours/10 HTTP/1.1" 201 139 "-" "PostmanRuntime/7.29.2"
+::1 - - [31/Dec/2022:07:15:24 +0000] "DELETE /api/v1/tours/10 HTTP/1.1" 204 - "-" "PostmanRuntime/7.29.2"
+[0mGET / [36m304[0m 3.156 ms - -[0m
+[0mGET /api/v1/tours [32m200[0m 0.970 ms - 8735[0m
+[0mPOST /api/v1/tours [32m201[0m 21.887 ms - 127[0m
+[0mGET /api/v1/tours/11 [32m200[0m 3.827 ms - 127[0m
+[0mPATCH /api/v1/tours/10 [32m201[0m 20.530 ms - 139[0m
+[0mDELETE /api/v1/tours/10 [32m204[0m 4.892 ms - -[0m
+::1 - - [31/Dec/2022:07:17:12 +0000] "GET /api/v1/tours HTTP/1.1" 200 8826
+::1 - - [31/Dec/2022:07:17:14 +0000] "GET /api/v1/tours/11 HTTP/1.1" 200 127

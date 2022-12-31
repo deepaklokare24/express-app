@@ -1,8 +1,28 @@
 const fs = require('fs');
+const path = require('path');
 const express = require('express');
+const morgan = require('morgan');
 const { getTourById, updateToursSourceFile } = require('./utils/helper');
 
 const app = express();
+
+// create a write stream (in append mode)
+var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
+  flags: 'a',
+});
+
+// setup the logger
+app.use(morgan('common', { stream: accessLogStream }));
+
+app.use(function (req, res, next) {
+  console.log('Hello from MIddleware 👋🏻');
+  next();
+});
+
+app.use((req, res, next) => {
+  req.requestedAt = new Date().toISOString();
+  next();
+});
 app.use(express.json());
 
 const toursFileName = `${__dirname}/dev-data/data/tours-simple.json`;
@@ -15,9 +35,10 @@ app.get('/', (req, res) => {
     .json({ message: 'Hello from server side 😃', author: 'Deepak Lokare' });
 });
 
-const getTours = (req, res) => {
+const getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',
+    requestedAt: req.requestedAt,
     result: tours.length,
     data: {
       tours,
@@ -84,13 +105,13 @@ const deleteTour = (req, res) => {
   }
 };
 
-// app.get('/api/v1/tours', getTours);
+// app.get('/api/v1/tours', getAllTours);
 // app.get('/api/v1/tours/:id', getTour);
 // app.post('/api/v1/tours', createTour);
 // app.patch('/api/v1/tours/:id', updateTour);
 // app.delete('/api/v1/tours/:id', deleteTour);
 
-app.route('/api/v1/tours').get(getTours).post(createTour);
+app.route('/api/v1/tours').get(getAllTours).post(createTour);
 
 app
   .route('/api/v1/tours/:id')
