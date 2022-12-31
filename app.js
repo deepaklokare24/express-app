@@ -111,13 +111,12 @@ const deleteTour = (req, res) => {
 // app.patch('/api/v1/tours/:id', updateTour);
 // app.delete('/api/v1/tours/:id', deleteTour);
 
-app.route('/api/v1/tours').get(getAllTours).post(createTour);
+const tourRoute = express.Router();
 
-app
-  .route('/api/v1/tours/:id')
-  .get(getTour)
-  .patch(updateTour)
-  .delete(deleteTour);
+tourRoute.route('/').get(getAllTours).post(createTour);
+tourRoute.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
+
+app.use('/api/v1/tours', tourRoute);
 
 const port = 3000;
 app.listen(port, () => {
