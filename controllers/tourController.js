@@ -1,5 +1,7 @@
+/* eslint-disable node/no-unsupported-features/es-syntax */
 const fs = require('fs');
 const { getTourById, updateToursSourceFile } = require('../utils/helper');
+
 const toursFileName = `${__dirname}/../dev-data/data/tours-simple.json`;
 const tours = JSON.parse(fs.readFileSync(toursFileName));
 
@@ -19,7 +21,6 @@ exports.checkValidTourId = (req, res, next, value) => {
 exports.validateTourPayload = (req, res, next) => {
   const payload = req.body;
   if (Object.keys(payload).length) {
-    console.log(`Payload ${JSON.stringify(payload)}`);
     const isValidTour =
       'name' in payload &&
       'duration' in payload &&
@@ -82,12 +83,9 @@ exports.updateTour = (req, res) => {
 exports.deleteTour = (req, res) => {
   const tour = getTourById(req, tours);
   // filter tours source data by removing this tour
-  const newTours = tours.filter((item) => {
-    if (item.id !== tour.id) {
-      return item;
-    }
-  });
+  const newTours = tours.filter((item) => item.id !== tour.id);
   res.status(204).send('done');
+  console.log(newTours);
   // Not deleting from source file as of now
   //updateToursSourceFile(toursFileName, newTours, updatedTour, res);
 };

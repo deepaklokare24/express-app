@@ -1,4 +1,5 @@
 const dotEnv = require('dotenv');
+
 dotEnv.config({ path: './config.env' });
 
 const app = require('./app');
