@@ -16,6 +16,27 @@ exports.checkValidTourId = (req, res, next, value) => {
   next();
 };
 
+exports.validateTourPayload = (req, res, next) => {
+  const payload = req.body;
+  if (Object.keys(payload).length) {
+    console.log(`Payload ${JSON.stringify(payload)}`);
+    const isValidTour =
+      'name' in payload &&
+      'duration' in payload &&
+      'maxGroupSize' in payload &&
+      'difficulty' in payload;
+
+    if (!isValidTour) {
+      return res.status(400).json({
+        status: 'Failure',
+        message:
+          'Invalid Tour parameters, Please specify following mandatory fields: name, duration, maxGroupSize and difficulty',
+      });
+    }
+  }
+  next();
+};
+
 exports.getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',

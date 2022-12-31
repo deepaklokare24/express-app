@@ -23,3 +23,22 @@
 ::1 - - [31/Dec/2022:08:17:00 +0000] "GET /api/v1/tours/12 HTTP/1.1" 200 124
 ::1 - - [31/Dec/2022:08:17:02 +0000] "PATCH /api/v1/tours/10 HTTP/1.1" 201 139
 ::1 - - [31/Dec/2022:08:17:10 +0000] "DELETE /api/v1/tours/10 HTTP/1.1" 204 -
+::1 - - [31/Dec/2022:11:06:33 +0000] "GET / HTTP/1.1" 404 139
+::1 - - [31/Dec/2022:11:07:04 +0000] "GET /img/user.jpg HTTP/1.1" 404 151
+::1 - - [31/Dec/2022:11:07:04 +0000] "GET /img/tour-1-cover.jpg HTTP/1.1" 404 159
+::1 - - [31/Dec/2022:11:07:04 +0000] "GET /img/tour-2-cover.jpg HTTP/1.1" 404 159
+::1 - - [31/Dec/2022:11:07:04 +0000] "GET /img/tour-3-cover.jpg HTTP/1.1" 404 159
+::1 - - [31/Dec/2022:11:07:04 +0000] "GET /img/tour-5-cover.jpg HTTP/1.1" 404 159
+::1 - - [31/Dec/2022:11:07:04 +0000] "GET /img/tour-4-cover.jpg HTTP/1.1" 404 159
+::1 - - [31/Dec/2022:11:07:04 +0000] "GET /img/tour-6-cover.jpg HTTP/1.1" 404 159
+::1 - - [31/Dec/2022:11:07:30 +0000] "GET /img/user.jpg HTTP/1.1" 404 151
+::1 - - [31/Dec/2022:11:07:30 +0000] "GET /img/tour-5-1.jpg HTTP/1.1" 404 155
+::1 - - [31/Dec/2022:11:07:30 +0000] "GET /img/tour-5-2.jpg HTTP/1.1" 404 155
+::1 - - [31/Dec/2022:11:07:30 +0000] "GET /img/tour-5-3.jpg HTTP/1.1" 404 155
+::1 - - [31/Dec/2022:11:07:30 +0000] "GET /img/tour-5-2.jpg HTTP/1.1" 404 155
+::1 - - [31/Dec/2022:11:07:30 +0000] "GET /img/tour-5-1.jpg HTTP/1.1" 404 155
+[0mGET /api/v1/tours [32m200[0m 5.174 ms - 9443[0m
+[0mPOST /api/v1/tours [32m201[0m 21.979 ms - 120[0m
+[0mGET /api/v1/tours/2 [32m200[0m 5.958 ms - 886[0m
+[0mPATCH /api/v1/tours/8 [32m201[0m 19.391 ms - 900[0m
+[0mDELETE /api/v1/tours/2 [32m204[0m 5.680 ms - -[0m
